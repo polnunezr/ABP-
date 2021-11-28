@@ -106,8 +106,8 @@ function canviar_imatge(adre) {
                     adre_actual.style.backgroundImage != backcard &&
                     adre_actual.id != adre_anterior.id && score != 500
                 ) {
-                    adre_actual.style.border = "thick solid #0000FF";
-                    adre_anterior.style.border = "thick solid #0000FF";
+                    adre_actual.style.border = "thick solid #00FF00	";
+                    adre_anterior.style.border = "thick solid #00FF00	";
                     score += maxScore;
                     showScore = score.toFixed();
                     document.getElementById('score').innerHTML = "Score: " + showScore;
@@ -167,7 +167,7 @@ function carregaDivs(dif) {
     let wrapper = document.getElementById("wrapper");
     //Creem les 4 rows
     for (var i = 0; i < rows; i++) {
-        wrapper.innerHTML += '<div class=row row-cols-2 row-cols-md-5 id=r' + i + '>' + '</div>'
+        wrapper.innerHTML += '<div class=row row-cols-2 row-cols-md-5 justify-content-center align-items-center id=r' + i + '>' + '</div>'
 
     }
     //Creem de la div 1 fins la 5 en la row amb l'r0
@@ -208,7 +208,7 @@ function carregaDivs(dif) {
     }
 }
 
-function Ini(nom) {
+function Ini() {
     alertCiclos();
     imgs = shuffle(imgs);
     var i = 1;
@@ -220,19 +220,28 @@ function Ini(nom) {
         i++;
         //document.getElementById('d'+j);
     }
-    tiempoAtrasReloj();
+    countdown(2, 00);
 }
 
 
-setInterval(tiempoAtrasReloj, 1000);
-const comencamentTemps = 2;
-let tiempo = comencamentTemps * 60;
+var timeoutHandle;
 
-function tiempoAtrasReloj() {
-
-    const minutos = Math.floor(tiempo / 60);
-    let segundos = tiempo % 60;
-    segundos = segundos < 2 ? '0' + segundos : segundos;
-    document.getElementById('compteEnrere').innerHTML = `${minutos}:${segundos}`;
-    tiempo--;
+function countdown(minutes, seconds) {
+    function tick() {
+        var counter = document.getElementById("compteEnrere");
+        counter.innerHTML = 'Temps: ' +
+            minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        seconds--;
+        if (seconds >= 0) {
+            timeoutHandle = setTimeout(tick, 1000);
+        } else {
+            if (minutes >= 1) {
+                // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+                setTimeout(function() {
+                    countdown(minutes - 1, 59);
+                }, 1000);
+            }
+        }
+    }
+    tick();
 }

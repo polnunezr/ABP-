@@ -3,7 +3,7 @@ let ciclo = localStorage.ciclo;
 switch (ciclo) {
     case 'comercio':
         document.getElementById('niveles').innerHTML =
-            '<a href="./nivelFacilComercio.html"><button type="button" class="btn btn-primary btn-sm">Modo Fácil comercio</button></a>' +
+            '<a href="./nivelFacil.html"><button type="button" class="btn btn-primary btn-sm">Modo Fácil comercio</button></a>' +
             '<button type="button" class="btn btn-primary btn-sm">Modo Difícil comercio</button>';
         break;
     case 'turismo':
