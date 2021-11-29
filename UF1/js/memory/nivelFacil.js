@@ -3,6 +3,7 @@ const backcard = 'url("./img/background.png")';
 var imgs = [];
 let rows;
 let columR0;
+let ciclo = localStorage.ciclo;
 let maxColR0;
 let columR1;
 let maxColR1;
@@ -11,17 +12,15 @@ let maxColR2;
 let columR3;
 let maxColR3;
 let showScore;
-let ciclo = localStorage.ciclo;
 var adre_anterior = "";
 var adre_actual = "";
 var ultim_click = "0";
-// variable para esperar devirar hasta virar una nueva carta
 var function_permission = true;
 let maxScore;
 var score = 0;
 var levelnum;
 
-function alertCiclos() {
+function alertCiclos(ciclo) {
 
     switch (ciclo) {
         case 'comercio':
@@ -88,20 +87,25 @@ function alertCiclos() {
             break;
     }
 }
-
+let element;
+let element2;
 function canviar_imatge(adre) {
     if ((adre_anterior = "" || adre_actual.id != adre.id) && ultim_click != 2) {
         // solo vay cambiar imagenes si estan todavia sin parells  ( sin borda )
         if (adre.style.border == "") {
             adre_anterior = adre_actual;
             adre_actual = adre;
-            if (adre.style.backgroundImage == backcard) {
+            if (adre.style.backgroundImage == backcard) {           
                 adre.style.backgroundImage = imatge_element(adre);
             } else {
                 adre.style.backgroundImage = backcard;
             }
             ultim_click++;
+    
+            element.style.add("flip-card-back");
+            element2.style.add("flip-card-back");
             if (ultim_click == "2") {
+        
                 if (adre_actual.style.backgroundImage == adre_anterior.style.backgroundImage &&
                     adre_actual.style.backgroundImage != backcard &&
                     adre_actual.id != adre_anterior.id && score != 500
@@ -117,7 +121,8 @@ function canviar_imatge(adre) {
                         adre_anterior.style.backgroundImage = backcard;
                         adre_actual.style.backgroundImage = backcard;
                     }, 400);
-
+                    element.style.add("card");
+                    element2.style.add("card");
 
                 }
                 ultim_click = "0";
@@ -209,7 +214,7 @@ function carregaDivs(dif) {
 }
 
 function Ini() {
-    alertCiclos();
+    alertCiclos(ciclo);
     imgs = shuffle(imgs);
     var i = 1;
     carregaDivs();
