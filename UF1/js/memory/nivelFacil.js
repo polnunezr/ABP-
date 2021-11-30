@@ -77,35 +77,99 @@ function alertCiclos(ciclo) {
             maxColR1 = 6;
 
             break;
-        case 'comunicacion':
+        case 'comunicion':
             alert("Informática y Comunicación");
+            imgs = ['url("./img/Informatica/img1.png")',
+                'url("./img/Informatica/img2.png")',
+                'url("./img/Informatica/img3.png")',
+                'url("./img/Informatica/img4.png")',
+                'url("./img/Informatica/img5.png")',
+                'url("./img/Informatica/img6.png")',
+                'url("./img/Informatica/img7.png")',
+                'url("./img/Informatica/img8.png")',
+                'url("./img/Informatica/img1.png")',
+                'url("./img/Informatica/img2.png")',
+                'url("./img/Informatica/img3.png")',
+                'url("./img/Informatica/img4.png")',
+                'url("./img/Informatica/img5.png")',
+                'url("./img/Informatica/img6.png")',
+                'url("./img/Informatica/img7.png")',
+                'url("./img/Informatica/img8.png")',
+
+            ];
+            maxScore = 500 / 8;
+
+            levelnum = 16;
+            rows = 4;
+            columR0 = 1;
+            maxColR0 = 4;
+            columR1 = 5;
+            maxColR1 = 8;
+            columR2 = 9;
+            maxColR2 = 12;
+            columR3 = 13;
+            maxColR3 = 16;
             break;
         case 'gestion':
             alert("Administración y Gestión");
+            imgs = ['url("./img/Administracion/img1.png")',
+                'url("./img/Administracion/img2.jpg")',
+                'url("./img/Administracion/img3.jpg")',
+                'url("./img/Administracion/img4.jpg")',
+                'url("./img/Administracion/img5.jpg")',
+                'url("./img/Administracion/img6.jpg")',
+                'url("./img/Administracion/img7.png")',
+                'url("./img/Administracion/img8.jpg")',
+                'url("./img/Administracion/img9.jpg")',
+                'url("./img/Administracion/img1.png")',
+                'url("./img/Administracion/img2.jpg")',
+                'url("./img/Administracion/img3.jpg")',
+                'url("./img/Administracion/img4.jpg")',
+                'url("./img/Administracion/img5.jpg")',
+                'url("./img/Administracion/img6.jpg")',
+                'url("./img/Administracion/img7.png")',
+                'url("./img/Administracion/img8.jpg")',
+                'url("./img/Administracion/img9.jpg")',
+
+            ];
+            maxScore = 500 / 9;
+
+            levelnum = 18;
+            rows = 4;
+            columR0 = 1;
+            maxColR0 = 5;
+            columR1 = 6;
+            maxColR1 = 10;
+            columR2 = 11;
+            maxColR2 = 15;
+            columR3 = 16;
+            maxColR3 = 18;
+            break;
         default:
             alert("Ningun ciclo seleccionado");
             break;
     }
 }
-let element;
-let element2;
+
+const second = document.querySelector('.card');
+
 function canviar_imatge(adre) {
     if ((adre_anterior = "" || adre_actual.id != adre.id) && ultim_click != 2) {
         // solo vay cambiar imagenes si estan todavia sin parells  ( sin borda )
         if (adre.style.border == "") {
+
             adre_anterior = adre_actual;
             adre_actual = adre;
-            if (adre.style.backgroundImage == backcard) {           
+
+            if (adre.style.backgroundImage == backcard) {
+
                 adre.style.backgroundImage = imatge_element(adre);
             } else {
                 adre.style.backgroundImage = backcard;
             }
             ultim_click++;
-    
-            element.style.add("flip-card-back");
-            element2.style.add("flip-card-back");
             if (ultim_click == "2") {
-        
+
                 if (adre_actual.style.backgroundImage == adre_anterior.style.backgroundImage &&
                     adre_actual.style.backgroundImage != backcard &&
                     adre_actual.id != adre_anterior.id && score != 500
@@ -117,12 +181,13 @@ function canviar_imatge(adre) {
                     document.getElementById('score').innerHTML = "Score: " + showScore;
 
                 } else {
+
                     setTimeout(function() {
+
                         adre_anterior.style.backgroundImage = backcard;
                         adre_actual.style.backgroundImage = backcard;
-                    }, 400);
-                    element.style.add("card");
-                    element2.style.add("card");
+                    }, 1000);
+
 
                 }
                 ultim_click = "0";
@@ -132,7 +197,12 @@ function canviar_imatge(adre) {
     }
 }
 
+function flip(card) {
+    var element = card.currentTarget;
+    if (element.className === "card") {
 
+    }
+};
 
 
 function canviar_1s(adre) {
@@ -202,16 +272,16 @@ function carregaDivs(dif) {
             '</div> </div>';
     }
     //Creem de la div 16 fins la 20 en la row amb l'r3
-    if (ciclo === 'comercio') {
-        let r3 = document.getElementById("r3");
-        for (var j = columR3; j <= maxColR3; j++) {
-            r3.innerHTML += '<div class="col"> <div class="card" id="d' + j + '"' +
-                'onclick="canviar_imatge(this)" ' +
-                'ondblclick="canviar_1s(this)">' +
-                '</div> </div>';
-        }
+
+    let r3 = document.getElementById("r3");
+    for (var j = columR3; j <= maxColR3; j++) {
+        r3.innerHTML += '<div class="col"> <div class="card" id="d' + j + '"' +
+            'onclick="canviar_imatge(this)" ' +
+            'ondblclick="canviar_1s(this)">' +
+            '</div> </div>';
     }
 }
+
 
 function Ini() {
     alertCiclos(ciclo);
@@ -225,11 +295,12 @@ function Ini() {
         i++;
         //document.getElementById('d'+j);
     }
-    countdown(2, 00);
+    countdown(2, 0);
 }
 
 
 var timeoutHandle;
+let timeInSeconds = 0;
 
 function countdown(minutes, seconds) {
     function tick() {
@@ -237,8 +308,10 @@ function countdown(minutes, seconds) {
         counter.innerHTML = 'Temps: ' +
             minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
         seconds--;
+        timeInSeconds++;
         if (seconds >= 0) {
             timeoutHandle = setTimeout(tick, 1000);
+
         } else {
             if (minutes >= 1) {
                 // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
@@ -249,4 +322,5 @@ function countdown(minutes, seconds) {
         }
     }
     tick();
+
 }

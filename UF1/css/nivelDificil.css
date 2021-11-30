@@ -19,6 +19,9 @@ img {
     background: center center no-repeat;
     background-size: 100%;
     background-color: red;
+    transform: rotateY(180deg);
+    top: 50px;
+    left: 50px;
 }
 
 .card:hover {
@@ -26,4 +29,9 @@ img {
     box-sizing: border-box;
     border-style: solid;
     border-width: 2px;
+}
+
+#r1 {
+    top: auto;
+    left: auto;
 }

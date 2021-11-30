@@ -8,76 +8,88 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/nivelDificil.css">
 </head>
+<script>
+    function moveElement() {
+        for (let i = 0; i < 20; i++) {
+            let div = document.getElementById('r' + i);
+
+            div.style.top = `${Math.random() * 2000}%`;
+            div.style.left = `${Math.random() * 2000}%`;
+        }
+
+
+    }
+</script>
 
 <body>
-    <div class="container" id="wrapper">
-        <div class="row">
+    <button onclick="moveElement();">Move</button>
 
-            <div class="card"></div>
+    <div class="row">
 
-            <div class="card"></div>
+        <div class="card" id="r0"></div>
 
-
-            <div class="card"></div>
-
-            <div class="card"></div>
+        <div class="card" id="r1"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r2"></div>
 
-        </div>
-
-        <div class="row">
-
-            <div class="card"></div>
+        <div class="card" id="r3"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r4"></div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="card" id="r5"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r6"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r7"></div>
 
 
-            <div class="card"></div>
-        </div>
+        <div class="card" id="r8"></div>
 
 
-        <div class="row">
-
-            <div class="card"></div>
-
-
-            <div class="card"></div>
+        <div class="card" id="r9"></div>
+    </div>
 
 
-            <div class="card"></div>
+    <div class="row">
+
+        <div class="card" id="r10"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r11"></div>
 
 
-            <div class="card"></div>
-        </div>
-        <div class="row">
-
-            <div class="card"></div>
+        <div class="card" id="r12"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r13"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r14"></div>
+    </div>
+    <div class="row">
+
+        <div class="card" id="r15"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r16"></div>
 
 
-            <div class="card"></div>
+        <div class="card" id="r17"></div>
 
-        </div>
+
+        <div class="card" id="r18"></div>
+
+
+        <div class="card" id="r19"></div>
+
     </div>
 </body>
 
