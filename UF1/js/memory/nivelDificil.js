@@ -151,7 +151,7 @@ const second = document.querySelector('.card');
 
 function canviar_imatge(adre) {
     if ((adre_anterior = "" || adre_actual.id != adre.id) && ultim_click != 2) {
-        // solo vay cambiar imagenes si estan todavia sin parells  ( sin borda )
+        // solo vay cambiar imagenes si estan todavia sin borde 
         if (adre.style.border == "") {
 
             adre_anterior = adre_actual;
@@ -286,7 +286,7 @@ function Ini() {
     }
     startTimer(60 * 2);
     setInterval(showModal, 1000);
-
+    moveElement();
 
 }
 
@@ -334,6 +334,55 @@ function showModal() {
         } else {
             staticBackdropLabel.innerHTML = 'HAS PERDUT!'
         }
-
     }
+}
+
+
+async function moveElement() {
+
+
+    let div;
+    let final = false;
+    let x;
+    let y;
+    let puntoXbck;
+    let puntoYbck;
+    let i = 1;
+
+
+    do {
+        div = document.getElementById('d' + i);
+
+        div.style.top = `${Math.random()  * (75 - 20)+20}%`;
+        div.style.left = `${Math.random() * (90 - 20)+20}%`;
+        x = parseFloat(div.style.top);
+        y = parseFloat(div.style.left);
+        if (x >= puntoYbck || y >= puntoXbck) {
+            x += 1;
+            div.style.top = x + "%";
+            div.style.left = y + "%";
+
+        } else {
+            x += 1;
+            div.style.top -= x + "%";
+            div.style.left -= y + "%";
+
+        }
+        puntoYbck = x + "%";
+        puntoXbck = y + "%";
+        await sleep(400);
+        if (i == imgs.length) {
+            i = 1;
+        } else {
+            i++;
+        }
+
+    } while (!final);
+
+
+
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
