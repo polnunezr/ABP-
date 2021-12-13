@@ -1,0 +1,38 @@
+body {
+    background: #FFEAC9;
+    font-family: Consolas, monaco, monospace;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    /* remove extra space below image */
+}
+
+.row {
+    text-align: center;
+    justify-content: center;
+}
+
+.card {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    cursor: pointer;
+    background: center center no-repeat;
+    background-size: 100%;
+    top: 0px;
+    left: 0px;
+    border-width: 0px;
+    transform: rotateY(0deg);
+    transition: transform 0.6s;
+}
+
+.card:hover {
+    box-shadow: inset 0px 0px 0px 1px black;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px;
+}

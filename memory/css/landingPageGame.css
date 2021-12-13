@@ -1,0 +1,26 @@
+body {
+    background: #FFEAC9;
+}
+
+h1 {
+    text-align: center;
+    font-size: 200px;
+    font-family: Consolas, monaco, monospace;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    font-family: Consolas, monaco, monospace;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 120px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
