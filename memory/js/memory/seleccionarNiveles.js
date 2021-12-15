@@ -41,10 +41,10 @@ function showCiclo(ciclo) {
         case 'comunicion':
         case 'gestion':
             document.getElementById('niveles').innerHTML =
-                '<a href="./nivelFacil.html"><button type="button" class="btn btn-success">Modo Fácil</button></a>' + ' ' +
-                '<a href="./nivelDificil.html"><button type="button" class="btn btn-danger">Modo Difícil</button></a>';
+            '<a href="./nivelFacil.php"><button type="button" class="btn btn-success">Modo Fácil</button></a>' + ' ' +
+            '<a href="./nivelDificil.php"><button type="button" class="btn btn-danger">Modo Difícil</button></a>';
             break;
-        default:
+        default:     
             alert('Ningun ciclo seleccionado');
 
     }
