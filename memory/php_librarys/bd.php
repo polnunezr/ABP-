@@ -1,4 +1,7 @@
 <?php
+session_start();
+saveStatisticBD($_SESSION['id'],$_GET['puntuation']);
+
 function openBD()
 {
     $servername = "localhost";
