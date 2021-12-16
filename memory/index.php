@@ -1,3 +1,13 @@
+<?php
+require_once('./php_librarys/bd.php');
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+$_SESSION['id'] = 1;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +24,6 @@
     <link rel="stylesheet" href="./css/landingPageGame.css">
 </head>
 
-</script>
 
 
 

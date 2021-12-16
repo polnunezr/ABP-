@@ -327,6 +327,7 @@ function startTimer(duration) {
 
 function showModal() {
     if (score == 500 || timeInSeconds == 120) {
+        ajaxPuntuacion();
         $('#staticBackdrop').modal('show');
         document.getElementById("mostrarResultados").innerHTML = "Puntuacio : " + score + " punts " + '<br>' + "Temps : " + timeInSeconds + " segons";
         if (score == 500) {
@@ -336,4 +337,12 @@ function showModal() {
         }
 
     }
+}
+
+function ajaxPuntuacion() {
+    let pointsAjax = score;
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "ajaxPuntuacion.php?puntuation=" + pointsAjax, true);
+    xhttp.send();
 }

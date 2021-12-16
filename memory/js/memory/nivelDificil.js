@@ -325,6 +325,7 @@ function startTimer(duration) {
 
 function showModal() {
     if (score == 500 || timeInSeconds == 120) {
+        ajaxPuntuacion();
         $('#staticBackdrop').modal('show');
         document.getElementById("mostrarResultados").innerHTML = "Puntuacio : " + score + " punts " + '<br>' + "Temps : " + timeInSeconds + " segons";
         if (score == 500) {
@@ -346,10 +347,10 @@ async function moveElement() {
     let puntoXbck;
     let puntoYbck;
     let i = 1;
-    
-    let maxHeight = screen.height * 20 ;
-    let maxWidth =  screen.width * 20 ;
-   
+
+    let maxHeight = screen.height * 20;
+    let maxWidth = screen.width * 20;
+
     do {
         div = document.getElementById('d' + i);
 
@@ -385,4 +386,12 @@ async function moveElement() {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function ajaxPuntuacion() {
+    let pointsAjax = score;
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "ajaxPuntuacion.php?puntuation=" + pointsAjax, true);
+    xhttp.send();
 }
