@@ -336,6 +336,7 @@ function showModal() {
             staticBackdropLabel.innerHTML = 'HAS PERDUT!'
         }
 
+
     }
 }
 
@@ -343,6 +344,6 @@ function ajaxPuntuacion() {
     let pointsAjax = score;
 
     let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "ajaxPuntuacion.php?puntuation=" + pointsAjax, true);
+    xhttp.open("GET", "./php_librarys/rankinController.php?puntuation=" + pointsAjax, true);
     xhttp.send();
 }

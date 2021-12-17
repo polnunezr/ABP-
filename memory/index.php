@@ -4,7 +4,13 @@ if(!isset($_SESSION))
 { 
     session_start(); 
 } 
-$_SESSION['id'] = 1;
+$user = isset($_SESSION['user']) ? $_SESSION['user'] : '';
+$admin = isset($_SESSION['admin']) ? $_SESSION['admin'] : '';
+if(!empty($user)) {
+    $_SESSION['idMemory'] = $user['id_usuario'];
+} elseif(!empty($admin)) {
+    $_SESSION['idMemory'] = $admin['id_usuario'];
+}
 
 ?>
 

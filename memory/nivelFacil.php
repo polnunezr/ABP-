@@ -43,9 +43,10 @@
 
                     </div>
                     <div class="modal-footer">
+                        
                         <button type="button" class="btn btn-info" onclick="location.reload()">Tornar a jugar</button>
                         <a href="./clasificacion.php"><button type="button " class="btn btn-secondary">Mostrar Ranking</button>
-                            <a href=""> <button type="button " class="btn btn-primary ">Continuar</button></a>
+                        <a href="./index.php"> <button type="button " class="btn btn-primary ">Continuar</button></a>
                     </div>
                 </div>
             </div>
